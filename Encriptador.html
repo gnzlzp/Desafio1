@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encoder GnZlZp</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script type="text/javascript" src="script.js"></script> -->
+
+</head>
+<body>
+    <header>
+        
+        <img src="imagenes/Logo.png" alt="logo alura" id="logo">  
+        
+    </header>
+    
+    <main>
+        
+        <form id="form1">
+            <div class="entrada">
+                <input type="text" id="mensaje" placeholder="Ingrese el texto deseado aquí" required>  
+            </div>   
+        </form>
+
+        
+           <div class="salida"> 
+                <img id="imagen" src="imagenes/Muñeco.png" alt="imagen_fondo">
+                <p id="atencion">No se reconoce ningún texto</p>
+                <textarea id="resultado" cols="30" rows="10" placeholder="Aquí verá el texto que desea encriptar o desencriptar" readonly></textarea>
+            </div>
+
+
+        <div class="botones">
+            <button type="button" id="btnEncriptar" onclick="encriptar()">Encriptar</button>
+            <button type="button" id="btnDesencriptar" onclick="desencriptar()">Desencriptar</button>
+            <button type="button" id="btncCopiar" onclick="copiar()">Copiar</button>
+            <button type="button" id="nuevo" onclick="nuevo()">Otra palabra</button>
+        </div>
+
+ 
+    </main>
+    
+    <!-- <footer class="piePagina"> 
+        
+        <h4>Pedro Gonzalez</h4>
+        <p id="firma">Ing. electronico</p>  
+        
+
+    </footer>-->
+    <script>
+        
+        
+            /*function validar() {
+                //si cod es igual a true ejecuta una alerta
+                //de lo contrario encriptar/desencriptar/copiar
+                
+                let expReg = /\W\B|[A-Z]/g;
+                texto = document.getElementById("mensaje").value;
+
+                cod = expReg.test(texto);
+
+                if (cod == true) {
+                    alert('Evite agregar mayúsculas y/o caracteres especiales como ´!"#$%/() etc');
+                    return;
+                }
+                
+            }*/
+            
+            function nuevo(){
+                form1.reset();
+                document.querySelector('#mensaje').focus();
+                document.getElementById("resultado").value = "";
+                
+            }
+
+            function encriptar() {
+                                 
+                let expReg = /\W\B|[A-Z]/g;
+                texto = document.getElementById("mensaje").value;
+
+                cod = expReg.test(texto);
+
+                if (cod == true) {
+                    alert('Evite agregar mayúsculas y/o \ncaracteres especiales como:\n´ ! " # $ % / ( ) etc');
+                } else {
+
+                texto = document.getElementById("mensaje").value;
+                cifrado = texto.replaceAll('e', "enter")
+                .replaceAll('i', 'imes')
+                .replaceAll('a', 'ai')
+                .replaceAll('o', 'ober')
+                .replaceAll('u', 'ufat');
+                
+                document.getElementById("imagen").style.display="none";
+                document.getElementById("atencion").style.display="none";
+                document.getElementById("resultado").innerHTML = cifrado;
+                }
+            }
+              
+            function desencriptar() {
+                let expReg = /\W\B|[A-Z]/g;
+                
+                texto = document.getElementById("mensaje").value;
+
+                cod = expReg.test(texto);
+
+                if (cod == true) {
+                    alert('Evite agregar mayúsculas y/o caracteres especiales como ´!"#$%/() etc');
+                } else {
+                texto = document.getElementById("mensaje").value;
+                cifrado = texto.replaceAll('enter', "e")
+                .replaceAll('imes', 'i')
+                .replaceAll('ai', 'a')
+                .replaceAll('ober', 'o')
+                .replaceAll('ufat', 'u');
+                
+                document.getElementById("imagen").style.display="none";
+                document.getElementById("atencion").style.display="none";
+                document.getElementById("resultado").innerHTML = cifrado;
+                }
+            }    
+            
+            function copiar(){
+                contenido = document.querySelector("#resultado");
+                contenido.select();
+                document.execCommand('copy');
+            }
+        
+
+                
+    </script>
+   
+</body>
+
+</html>
