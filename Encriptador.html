@@ -11,38 +11,30 @@
 
 </head>
 <body>
-    <header>
+    <header class="header">
+        <img src="imagenes/Logo.png" alt="logo alura" class="logo">  
+        <h1 class="titulo">Encriptador de mensajes</h1>
+    </header> 
+    <div class="container">  
+        <div class="entrada">
+            <form id="form1">
+                <input type="text" id="mensaje" autocomplete="off" placeholder="Ingrese el texto deseado aquí" required>  
+            </form>   
+        </div>
         
-        <img src="imagenes/Logo.png" alt="logo alura" id="logo">  
-        
-    </header>
-    
-    <main>
-        
-        <form id="form1">
-            <div class="entrada">
-                <input type="text" id="mensaje" placeholder="Ingrese el texto deseado aquí" required>  
-            </div>   
-        </form>
-
-        
-           <div class="salida"> 
-                <img id="imagen" src="imagenes/Muñeco.png" alt="imagen_fondo">
-                <p id="atencion">No se reconoce ningún texto</p>
-                <textarea id="resultado" cols="30" rows="10" placeholder="Aquí verá el texto que desea encriptar o desencriptar" readonly></textarea>
-            </div>
-
+        <div class="salida"> 
+            <img id="imagen" src="imagenes/Muñeco.png" alt="imagen_fondo">
+            <p id="atencion">No se reconoce ningún texto</p>
+            <textarea id="resultado" cols="30" rows="10" placeholder="Aquí verá el texto que desea encriptar o desencriptar" readonly></textarea>
+        </div>
 
         <div class="botones">
+            <p>No se admite caracteres especiales ni mayusculas</p>
             <button type="button" id="btnEncriptar" onclick="encriptar()">Encriptar</button>
             <button type="button" id="btnDesencriptar" onclick="desencriptar()">Desencriptar</button>
             <button type="button" id="btncCopiar" onclick="copiar()">Copiar</button>
-            <button type="button" id="nuevo" onclick="nuevo()">Otra palabra</button>
         </div>
-
- 
-    </main>
-    
+    </div>
     <!-- <footer class="piePagina"> 
         
         <h4>Pedro Gonzalez</h4>
@@ -51,43 +43,25 @@
 
     </footer>-->
     <script>
-        
-        
-            /*function validar() {
-                //si cod es igual a true ejecuta una alerta
-                //de lo contrario encriptar/desencriptar/copiar
-                
+            function validar() {
                 let expReg = /\W\B|[A-Z]/g;
                 texto = document.getElementById("mensaje").value;
-
                 cod = expReg.test(texto);
-
-                if (cod == true) {
-                    alert('Evite agregar mayúsculas y/o caracteres especiales como ´!"#$%/() etc');
-                    return;
+                
+                if(document.getElementById("mensaje").value.trim() == "") {
+                    alert("No ha introducido ningún texto");
+                    return false;    
                 }
-                
-            }*/
-            
-            function nuevo(){
-                form1.reset();
-                document.querySelector('#mensaje').focus();
-                document.getElementById("resultado").value = "";
-                
-            }
-
-            function encriptar() {
-                                 
-                let expReg = /\W\B|[A-Z]/g;
-                texto = document.getElementById("mensaje").value;
-
-                cod = expReg.test(texto);
-
                 if (cod == true) {
                     alert('Evite agregar mayúsculas y/o \ncaracteres especiales como:\n´ ! " # $ % / ( ) etc');
-                } else {
-
-                texto = document.getElementById("mensaje").value;
+                    return false;
+                }
+            }   
+            function encriptar() {
+                                
+                if (validar() == false){
+                    return;
+                }
                 cifrado = texto.replaceAll('e', "enter")
                 .replaceAll('i', 'imes')
                 .replaceAll('a', 'ai')
@@ -97,20 +71,14 @@
                 document.getElementById("imagen").style.display="none";
                 document.getElementById("atencion").style.display="none";
                 document.getElementById("resultado").innerHTML = cifrado;
-                }
-            }
-              
-            function desencriptar() {
-                let expReg = /\W\B|[A-Z]/g;
+                document.getElementById("mensaje").value = "";                
                 
-                texto = document.getElementById("mensaje").value;
-
-                cod = expReg.test(texto);
-
-                if (cod == true) {
-                    alert('Evite agregar mayúsculas y/o caracteres especiales como ´!"#$%/() etc');
-                } else {
-                texto = document.getElementById("mensaje").value;
+            }  
+            function desencriptar() {
+                
+                if (validar() == false){
+                    return;
+                }                
                 cifrado = texto.replaceAll('enter', "e")
                 .replaceAll('imes', 'i')
                 .replaceAll('ai', 'a')
@@ -120,19 +88,16 @@
                 document.getElementById("imagen").style.display="none";
                 document.getElementById("atencion").style.display="none";
                 document.getElementById("resultado").innerHTML = cifrado;
-                }
-            }    
-            
+                document.getElementById("mensaje").value = ""; 
+            }   
             function copiar(){
-                contenido = document.querySelector("#resultado");
+                contenido = document.getElementById("resultado");
                 contenido.select();
-                document.execCommand('copy');
-            }
-        
-
-                
-    </script>
-   
+                contenido.setSelectionRange(0, 99999); // For mobile devices
+                navigator.clipboard.writeText(contenido.value);
+                alert("Se copio el texto: " + contenido.value);
+                document.getElementById("mensaje").value = contenido.value;               
+            }            
+    </script>  
 </body>
-
 </html>
