@@ -5,43 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encoder GnZlZp</title>
-    <link rel="stylesheet" href="reset.css">
+    <!-- <link rel="stylesheet" href="reset.css"> -->
     <link rel="stylesheet" href="style.css">
     <!-- <script type="text/javascript" src="script.js"></script> -->
 
 </head>
 <body>
     <header class="header">
-        <img src="imagenes/Logo.png" alt="logo alura" class="logo">  
+        <picture>
+            <img src="imagenes/Logo.png" alt="logo alura" class="logo">
+        </picture>
         <h1 class="titulo">Encriptador de mensajes</h1>
     </header> 
-    <div class="container">  
+    
+    <section class="izq">  
         <div class="entrada">
             <form id="form1">
                 <input type="text" id="mensaje" autocomplete="off" placeholder="Ingrese el texto deseado aquí" required>  
-            </form>   
+            </form>
+            <p class="info"><span>&#128681;</span> No se admite caracteres especiales ni mayúsculas!.</p>
+            <div class="botones">
+                <button type="button" id="btnEncriptar" onclick="encriptar()">Encriptar</button>
+                <button type="button" id="btnDesencriptar" onclick="desencriptar()">Desencriptar</button>
+            </div>   
         </div>
-        
-        <div class="salida"> 
-            <img id="imagen" src="imagenes/Muñeco.png" alt="imagen_fondo">
-            <p id="atencion">No se reconoce ningún texto</p>
-            <textarea id="resultado" cols="30" rows="10" placeholder="Aquí verá el texto que desea encriptar o desencriptar" readonly></textarea>
+    </section>
+    <section class="der">
+        <div class="salida">
+            <picture>
+                <img id="imagen" src="imagenes/Muñeco.png" alt="imagen_fondo" display="none">
+            </picture>
+            <div class="mensaje1">
+               <p id="atencion">No se reconoce ningún texto</p> 
+            </div>
+            
+            <div class="mensaje2">
+               <textarea id="resultado" cols="30" rows="10" placeholder="Aquí verá el texto que desea encriptar o desencriptar" readonly></textarea> 
+            </div>
+            
+            <div class="boton">
+               <button type="button" id="btncCopiar" onclick="copiar()">Copiar</button> 
+            </div>
+            
         </div>
-
-        <div class="botones">
-            <p>No se admite caracteres especiales ni mayusculas</p>
-            <button type="button" id="btnEncriptar" onclick="encriptar()">Encriptar</button>
-            <button type="button" id="btnDesencriptar" onclick="desencriptar()">Desencriptar</button>
-            <button type="button" id="btncCopiar" onclick="copiar()">Copiar</button>
-        </div>
-    </div>
-    <!-- <footer class="piePagina"> 
+    </section>    
+    
+    <!-- <footer class="piePagina">  
         
         <h4>Pedro Gonzalez</h4>
-        <p id="firma">Ing. electronico</p>  
+        <p id="firma">Ing. electronico</p> --> 
         
 
-    </footer>-->
+    </footer>
     <script>
             function validar() {
                 let expReg = /\W\B|[A-Z]/g;
