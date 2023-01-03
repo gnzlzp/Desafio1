@@ -7,7 +7,7 @@
     <title>Encoder GnZlZp</title>
     <!-- <link rel="stylesheet" href="reset.css"> -->
     <link rel="stylesheet" href="style.css">
-    <!-- <script type="text/javascript" src="script.js"></script> -->
+    <script type="text/javascript" src="script.js"></script>
 
 </head>
 <body>
@@ -40,7 +40,7 @@
             </div>
             
             <div class="mensaje2">
-               <textarea id="resultado" cols="30" rows="10" placeholder="Aquí verá el texto que desea encriptar o desencriptar" readonly></textarea> 
+               <textarea id="resultado" cols="30" rows=auto placeholder="Aquí verá el texto que desea encriptar o desencriptar" readonly></textarea> 
             </div>
             
             <div class="boton">
@@ -50,69 +50,10 @@
         </div>
     </section>    
     
-    <!-- <footer class="piePagina">  
-        
+    <footer class="piePagina">
+        <p id="firma">Ing. electrónico</p>
         <h4>Pedro Gonzalez</h4>
-        <p id="firma">Ing. electronico</p> --> 
-        
-
-    </footer>
-    <script>
-            function validar() {
-                let expReg = /\W\B|[A-Z]/g;
-                texto = document.getElementById("mensaje").value;
-                cod = expReg.test(texto);
-                
-                if(document.getElementById("mensaje").value.trim() == "") {
-                    alert("No ha introducido ningún texto");
-                    return false;    
-                }
-                if (cod == true) {
-                    alert('Evite agregar mayúsculas y/o \ncaracteres especiales como:\n´ ! " # $ % / ( ) etc');
-                    return false;
-                }
-            }   
-            function encriptar() {
-                                
-                if (validar() == false){
-                    return;
-                }
-                cifrado = texto.replaceAll('e', "enter")
-                .replaceAll('i', 'imes')
-                .replaceAll('a', 'ai')
-                .replaceAll('o', 'ober')
-                .replaceAll('u', 'ufat');
-                
-                document.getElementById("imagen").style.display="none";
-                document.getElementById("atencion").style.display="none";
-                document.getElementById("resultado").innerHTML = cifrado;
-                document.getElementById("mensaje").value = "";                
-                
-            }  
-            function desencriptar() {
-                
-                if (validar() == false){
-                    return;
-                }                
-                cifrado = texto.replaceAll('enter', "e")
-                .replaceAll('imes', 'i')
-                .replaceAll('ai', 'a')
-                .replaceAll('ober', 'o')
-                .replaceAll('ufat', 'u');
-                
-                document.getElementById("imagen").style.display="none";
-                document.getElementById("atencion").style.display="none";
-                document.getElementById("resultado").innerHTML = cifrado;
-                document.getElementById("mensaje").value = ""; 
-            }   
-            function copiar(){
-                contenido = document.getElementById("resultado");
-                contenido.select();
-                contenido.setSelectionRange(0, 99999); // For mobile devices
-                navigator.clipboard.writeText(contenido.value);
-                alert("Se copio el texto: " + contenido.value);
-                document.getElementById("mensaje").value = contenido.value;               
-            }            
-    </script>  
+        <nav><a href="https://github.com/gnzlzp"><img src="imagenes/logogit.png"/>GitHub</a></nav>
+    </footer> 
 </body>
 </html>

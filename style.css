@@ -24,6 +24,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    padding-top: 10px;
 }
 .titulo {
     /* border: solid 2px; */
@@ -48,7 +49,7 @@ input {
     color: #0a3871;
     font-size: 22px;
     font-weight: bold;
-    position: relative;
+    /* position: relative; */
 }
 .info{
     font-weight: 400;
@@ -94,7 +95,7 @@ input {
     height: auto;
 }
 #imagen{
-    /* display: none ; */
+    display: none ;
 }
 .mensaje1{
     font-weight: 700;
@@ -118,7 +119,8 @@ input {
     line-height: 150%;
     color: #495057;
     text-align:center;
-    border: #0A3871 solid 1px;
+    /* border: #0A3871 solid 1px; */
+    
    
 }
 .boton{
@@ -127,17 +129,66 @@ input {
     justify-content: center;
     padding: 10px;
 }
-#btncCopiar{
-    
-    
+#btncCopiar{  
     /* display: none; */
     width: 90%;
     border-radius: 24px;
     border: 1px solid #0A3871;
     height: 67px;
 }
-
 footer{
+    /* background-image: url(imagenes/fondo.jpeg); */
+    width: 100%;
+}
+.piePagina{
+    color: black;
     display: flex;
-    flex-direction: column;   
+    width: 100%;
+    height: auto;
+    margin: auto;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    justify-content: space-around;
+    /* border: #0A3871 solid 2px; */
+
+}
+a{
+    text-decoration: none;
+    color: black;
+    
+}
+a img{
+    width: 25px;
+    
+}
+
+
+@media only screen and (min-width:768px){
+    body{
+        
+    }
+    .izq{
+        /* position: relative; */
+        display: flexbox;
+        width: 45%;
+        
+    }
+    input{
+        height: 430px;
+    }
+    .der{
+        position: absolute;
+        display: flex;
+        right: 10px;
+        top: 9%;
+        width: auto;
+        margin: auto;
+
+    }
+    #imagen{
+        
+        display: flex ;
+        padding-left: 26%;       
+    }
 }
