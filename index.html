@@ -5,55 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encoder GnZlZp</title>
-    <!-- <link rel="stylesheet" href="reset.css"> -->
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="script.js"></script>
-
+    
 </head>
 <body>
     <header class="header">
         <picture>
-            <img src="imagenes/Logo.png" alt="logo alura" class="logo">
+            <a href="https://gnzlzp.github.io/Desafio1/"><img class="logo" src="imagenes/Logo.png" alt="logo alura"></a>  
         </picture>
         <h1 class="titulo">Encriptador de mensajes</h1>
     </header> 
-    
-    <section class="izq">  
-        <div class="entrada">
-            <form id="form1">
-                <input type="text" id="mensaje" autocomplete="off" placeholder="Ingrese el texto deseado aquí" required>  
-            </form>
-            <p class="info"><span>&#128681;</span> No se admite caracteres especiales ni mayúsculas!.</p>
-            <div class="botones">
-                <button type="button" id="btnEncriptar" onclick="encriptar()">Encriptar</button>
-                <button type="button" id="btnDesencriptar" onclick="desencriptar()">Desencriptar</button>
-            </div>   
-        </div>
-    </section>
-    <section class="der">
-        <div class="salida">
-            <picture>
-                <img id="imagen" src="imagenes/Muñeco.png" alt="imagen_fondo" display="none">
-            </picture>
-            <div class="mensaje1">
-               <p id="atencion">No se reconoce ningún texto</p> 
+    <hr>
+    <main>
+        <section class="izq">  
+            <div class="entrada">
+                <textarea id="mensaje" cols="30" rows="10" placeholder="Ingrese el texto deseado aquí"></textarea>
+                <p class="info"><span>&#128681;</span> No se admite caracteres especiales ni mayúsculas!.</p>
+                <div class="botones">
+                    <button type="button" id="btnEncriptar" onclick="encriptar()">Encriptar</button>
+                    <button type="button" id="btnDesencriptar" onclick="desencriptar()">Desencriptar</button>
+                </div>   
             </div>
-            
-            <div class="mensaje2">
-               <textarea id="resultado" cols="30" rows=auto placeholder="Aquí verá el texto que desea encriptar o desencriptar" readonly></textarea> 
+        </section>
+        <section class="der">
+            <div class="salida">
+                
+                <textarea id="resultado" cols="30" rows=auto style="display: none;" readonly></textarea> 
+
+                
+                <div class="mensaje1">
+                    <p id="atencion">No se reconoce ningún texto</p> 
+                </div>
+
+                <div class="mensaje2">
+                    <p id="atencion2">Aquí verá el texto que desea encriptar o desencriptar</p>
+                </div>
+                
+                <div class="boton">
+                    <button type="button" id="btnCopiar" onclick="copiar()" style="display: none;">Copiar</button> 
+                </div>
+                
             </div>
-            
-            <div class="boton">
-               <button type="button" id="btncCopiar" onclick="copiar()">Copiar</button> 
-            </div>
-            
-        </div>
-    </section>    
-    
+        </section>     
+    </main>
+     
+    <hr>
     <footer class="piePagina">
-        <p id="firma">Ing. electrónico</p>
-        <h4>Pedro Gonzalez</h4>
-        <nav><a href="https://github.com/gnzlzp"><img src="imagenes/logogit.png"/>GitHub</a></nav>
+        <p>Ing. electrónico</p>
+        <p><h4>Pedro Gonzalez</h4></p>
+        <p><nav><a target="_blank" href="https://github.com/gnzlzp"><div><img src="imagenes/logogit.png"/></div></a></nav></p>
     </footer> 
+    <hr>
 </body>
+<script type="text/javascript" src="script.js"></script>
 </html>
