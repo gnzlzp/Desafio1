@@ -223,6 +223,9 @@ nav img{
         align-content: center;
     }
 
+    .piePagina{
+        width: 100%;
+    }
 
 }
 @media only screen and (max-width:375px){
@@ -258,4 +261,8 @@ nav img{
         align-content: center;
     }
 
+    .piePagina{
+        flex-direction: column;
+        width: 100%;
+    }
 }
