@@ -58,7 +58,7 @@ main{
 #mensaje {
     display: flex;
     margin: 10px auto;
-
+    padding: 10px;
     width: 90%;
     height: auto;
     outline: none;
@@ -118,14 +118,18 @@ main{
     border-radius: 32px;
     box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
 }
-
+.salida{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 #resultado{
-    
+    box-sizing: border-box;
+    width: 100%;
+    height: 80%;
+    padding: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    width: 90%;
     border-radius: 32px;
     border: none;
     outline: none;
@@ -134,9 +138,8 @@ main{
     font-size: 24px;
     line-height: 150%;
     color: #495057;
-    text-align:bottom;
     /* border: #0A3871 solid 1px; */
-        
+    
         
     }
 .mensaje1 p{
@@ -152,7 +155,6 @@ main{
 }
     
 .mensaje2 p{
-        
     display: flex;
     justify-content: center;
     text-align: center;
